@@ -1,6 +1,6 @@
 /* Definitions for communicating with a remote tape drive.
 
-   Copyright (C) 1988, 1992, 1996-1997, 2001, 2003-2004, 2007, 2023-2024 Free
+   Copyright (C) 1988, 1992, 1996-1997, 2001, 2003-2004, 2007, 2023-2025 Free
    Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify

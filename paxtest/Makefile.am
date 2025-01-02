@@ -1,6 +1,6 @@
 # This file is part of GNU paxutils
 #
-# Copyright (C) 2005, 2007, 2009, 2023-2024 Free Software Foundation, Inc.
+# Copyright (C) 2005, 2007, 2009, 2023-2025 Free Software Foundation, Inc.
 #
 # Written by Sergey Poznyakoff
 #

@@ -1,5 +1,5 @@
 /* argcv.c - simple functions for parsing input based on whitespace
-   Copyright (C) 1999-2001, 2007, 2009-2010, 2023-2024 Free Software
+   Copyright (C) 1999-2001, 2007, 2009-2010, 2023-2025 Free Software
    Foundation, Inc.
 
    This library is free software; you can redistribute it and/or

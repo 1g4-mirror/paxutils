@@ -1,6 +1,6 @@
 /* This file is part of GNU paxutils
 
-   Copyright (C) 1994-2001, 2003, 2005, 2007, 2023-2024 Free Software
+   Copyright (C) 1994-2001, 2003, 2005, 2007, 2023-2025 Free Software
    Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify

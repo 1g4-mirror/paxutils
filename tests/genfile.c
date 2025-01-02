@@ -1,6 +1,6 @@
 /* Multi-purpose tool for tar and cpio testsuite.
 
-   Copyright (C) 1995-1997, 2001-2018, 2023-2024 Free Software Foundation, Inc.
+   Copyright (C) 1995-1997, 2001-2018, 2023-2025 Free Software Foundation, Inc.
 
    François Pinard <pinard@iro.umontreal.ca>, 1995.
    Sergey Poznyakoff <gray@gnu.org>, 2004-2018.

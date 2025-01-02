@@ -1,6 +1,6 @@
 /* GNU tar Archive Format description.
 
-   Copyright (C) 1988-1989, 1991-1997, 2000-2001, 2003, 2007, 2023-2024 Free
+   Copyright (C) 1988-1989, 1991-1997, 2000-2001, 2003, 2007, 2023-2025 Free
    Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify it

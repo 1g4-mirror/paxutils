@@ -43,7 +43,7 @@ _remdev (char const *__dev_name)
 {
   if (force_local_option || *__dev_name == ':')
     return false;
-  for (char const *__p = __dev_name; *__p & (*__p != '/'); __p++)
+  for (char const *__p = __dev_name; *__p && (*__p != '/'); __p++)
     if (*__p == ':')
       return true;
   return false;

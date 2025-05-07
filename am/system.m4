@@ -11,5 +11,5 @@ AC_DEFUN([PU_SYSTEM],[
   AC_CHECK_MEMBERS([struct stat.st_blksize])
   AC_REQUIRE([AC_STRUCT_ST_BLOCKS])
 
-  AC_CHECK_FUNCS_ONCE([mkfifo getaddrinfo])
+  AC_CHECK_FUNCS_ONCE([mkfifo])
 ])

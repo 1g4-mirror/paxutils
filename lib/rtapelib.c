@@ -458,16 +458,6 @@ rmt_open (char const *file_name, int oflags, int bias,
 
   /* FIXME: Should somewhat validate the decoding, here.  */
 
-#if HAVE_GETADDRINFO
-  struct addrinfo *ai;
-  int err = getaddrinfo (remote_host, nullptr, nullptr, &ai);
-  if (err)
-    error (EXIT_ON_EXEC_ERROR, err == EAI_SYSTEM ? errno : 0,
-	   _("Cannot connect to %s: %s"),
-	   remote_host, gai_strerror (err));
-  freeaddrinfo (ai);
-#endif
-
   if (remote_user && *remote_user == '\0')
     remote_user = nullptr;
 

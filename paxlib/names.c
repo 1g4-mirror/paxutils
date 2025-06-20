@@ -80,50 +80,45 @@ removed_prefixes_p (void)
          || (prefix_table[1] && hash_get_n_entries (prefix_table[1]) != 0);
 }
 
-/* Return a safer suffix of FILE_NAME, or "." if it has no safer
-   suffix.  Check for fully specified file names and other atrocities.
-   Warn the user if we do not return NAME.  If LINK_TARGET is 1,
+/* Return a safer suffix of FILE_NAME, or "." if it has no safer suffix.
+   Skip any sequence of prefixes each of which would cause
+   the file name to escape the working directory on this platform.
+   Warn the user if we do not return NAME.  If LINK_TARGET,
    FILE_NAME is the target of a hard link, not a member name.
-   If !ABSOLUTE_NAMES, strip filesystem prefix from the file name. */
+   However, if ABSOLUTE_NAMES, do not skip prefixes, but instead
+   return FILE_NAME if nonempty, "." otherwise.  */
 
 char *
 safer_name_suffix (char const *file_name, bool link_target,
 		   bool absolute_names)
 {
-  char const *p;
+  char const *p = file_name;
 
-  if (absolute_names)
-    p = file_name;
-  else
+  if (!absolute_names)
     {
-      /* Skip file system prefixes, leading file name components that contain
-	 "..", and leading slashes.  */
-
-      idx_t prefix_len = FILE_SYSTEM_PREFIX_LEN (file_name);
-
-      for (p = file_name + prefix_len; *p; )
+      /* Skip any sequences of prefixes each of which would cause the
+	 resulting file name to escape the working directory on this platform.
+         The resulting file name is relative, not absolute.  */
+      for (;;)
 	{
-          if (p[0] == '.' && p[1] == '.' && (ISSLASH (p[2]) || !p[2]))
-	    prefix_len = p + 2 - file_name;
-
-	  do
+	  if (ISSLASH (*p))
+	    p++;
+	  else if (p[0] == '.' && p[1] == '.' && (ISSLASH (p[2]) || !p[2]))
+	    p += 2;
+	  else
 	    {
-	      char c = *p++;
-	      if (ISSLASH (c))
+	      int prefix_len = FILE_SYSTEM_PREFIX_LEN (p);
+	      if (prefix_len == 0)
 		break;
+	      p += prefix_len;
 	    }
-	  while (*p);
 	}
 
-      for (p = file_name + prefix_len; ISSLASH (*p); p++)
-	continue;
-      prefix_len = p - file_name;
-
-      if (prefix_len)
+      if (p != file_name)
 	{
 	  const char *prefix;
 	  if (hash_string_insert_prefix (&prefix_table[link_target], file_name,
-					 prefix_len, &prefix))
+					 p - file_name, &prefix))
 	    {
 	      static char const *const diagnostic[] =
 	      {

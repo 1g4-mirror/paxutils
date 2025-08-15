@@ -378,7 +378,7 @@ parse_opt (int key, char *arg, struct argp_state *state)
 	char *p;
 	checkpoint = strtoimax (arg, &p, 0);
 	if (checkpoint < 0 || *p)
-	  argp_error (state, _("Error parsing number near `%s'"), p);
+	  argp_error (state, _("Error parsing number near '%s'"), p);
       }
       break;
 
@@ -443,7 +443,7 @@ generate_simple_file (char *filename)
     {
       fp = fopen (filename, seek_offset ? "rb+" : "wb");
       if (!fp)
-	error (EXIT_FAILURE, errno, _("cannot open `%s'"), filename);
+	error (EXIT_FAILURE, errno, _("cannot open '%s'"), filename);
     }
   else
     fp = stdout;
@@ -486,7 +486,7 @@ generate_files_from_list ()
   struct obstack stk;
 
   if (!fp)
-    error (EXIT_FAILURE, errno, _("cannot open `%s'"), files_from);
+    error (EXIT_FAILURE, errno, _("cannot open '%s'"), files_from);
 
   obstack_init (&stk);
   while (!read_name_from_file (fp, &stk))
@@ -594,7 +594,7 @@ generate_sparse_file (int argc, char **argv)
     flags |= O_TRUNC;
   fd = open (file_name, flags, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
   if (fd < 0)
-    error (EXIT_FAILURE, errno, _("cannot open `%s'"), file_name);
+    error (EXIT_FAILURE, errno, _("cannot open '%s'"), file_name);
 
   buffer = ximalloc (block_size);
 
@@ -694,13 +694,13 @@ print_stat (const char *name)
 	      if (*q)
 		{
 		  printf ("\n");
-		  error (EXIT_USAGE, 0, _("incorrect mask (near `%s')"), q);
+		  error (EXIT_USAGE, 0, _("incorrect mask (near '%s')"), q);
 		}
 	    }
 	  else if (p[4])
 	    {
 	      printf ("\n");
-	      error (EXIT_USAGE, 0, _("Unknown field `%s'"), p);
+	      error (EXIT_USAGE, 0, _("Unknown field '%s'"), p);
 	    }
 	  printf ("%0jo", val);
 	}
@@ -733,7 +733,7 @@ print_stat (const char *name)
       else
 	{
 	  printf ("\n");
-	  error (EXIT_USAGE, 0, _("Unknown field `%s'"), p);
+	  error (EXIT_USAGE, 0, _("Unknown field '%s'"), p);
 	}
       p = strtok (nullptr, ",");
       if (p)
@@ -753,7 +753,7 @@ set_times (char const *name)
 		 no_dereference_option ? AT_SYMLINK_NOFOLLOW : 0)
       < 0)
     {
-      error (EXIT_FAILURE, errno, _("cannot set time on `%s'"), name);
+      error (EXIT_FAILURE, errno, _("cannot set time on '%s'"), name);
     }
 }
 
@@ -775,7 +775,7 @@ exec_checkpoint (struct action *p)
 		       no_dereference_option ? AT_SYMLINK_NOFOLLOW : 0)
 	    < 0)
 	  {
-	    error (0, errno, _("cannot set time on `%s'"), p->name);
+	    error (0, errno, _("cannot set time on '%s'"), p->name);
 	    break;
 	  }
       }
@@ -786,7 +786,7 @@ exec_checkpoint (struct action *p)
 	FILE *fp = fopen (p->name, "ab");
 	if (!fp)
 	  {
-	    error (0, errno, _("cannot open `%s'"), p->name);
+	    error (0, errno, _("cannot open '%s'"), p->name);
 	    break;
 	  }
 
@@ -800,12 +800,12 @@ exec_checkpoint (struct action *p)
 	int fd = open (p->name, O_RDWR | O_BINARY);
 	if (fd < 0)
 	  {
-	    error (0, errno, _("cannot open `%s'"), p->name);
+	    error (0, errno, _("cannot open '%s'"), p->name);
 	    break;
 	  }
 	if (ftruncate (fd, p->size) < 0)
 	  {
-	    error (0, errno, _("cannot truncate `%s'"), p->name);
+	    error (0, errno, _("cannot truncate '%s'"), p->name);
 	    break;
 	  }
 	close (fd);
@@ -821,14 +821,14 @@ exec_checkpoint (struct action *p)
       {
 	struct stat st;
 	if (stat (p->name, &st))
-	  error (0, errno, _("cannot stat `%s'"), p->name);
+	  error (0, errno, _("cannot stat '%s'"), p->name);
 	else if (S_ISDIR (st.st_mode))
 	  {
 	    if (rmdir (p->name))
-	      error (0, errno, _("cannot remove directory `%s'"), p->name);
+	      error (0, errno, _("cannot remove directory '%s'"), p->name);
 	  }
 	else if (unlink (p->name))
-	  error (0, errno, _("cannot unlink `%s'"), p->name);
+	  error (0, errno, _("cannot unlink '%s'"), p->name);
       }
       break;
 

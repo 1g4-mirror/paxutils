@@ -33,7 +33,7 @@ _GL_INLINE_HEADER_BEGIN
 #endif
 
 /* A filename is remote if it contains a colon not preceded by a slash,
-   to take care of `/:/' which is a shorthand for `/.../<CELL-NAME>/fs'
+   to take care of '/:/' which is a shorthand for '/.../<CELL-NAME>/fs'
    on machines running OSF's Distributing Computing Environment (DCE) and
    Distributed File System (DFS).  However, when --force-local, a
    filename is never remote.  */

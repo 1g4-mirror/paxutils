@@ -37,7 +37,7 @@ AC_DEFUN([PU_RMT],[
 
 
   AC_ARG_VAR([DEFAULT_RMT_DIR],
-             [Define full file name of the directory where to install `rmt'. (default: $(libexecdir))])
+             [Define full file name of the directory where to install 'rmt'. (default: $(libexecdir))])
   if test "x$DEFAULT_RMT_DIR" != x; then
 	DEFAULT_RMT_COMMAND=$DEFAULT_RMT_DIR/rmt
   else
@@ -47,7 +47,7 @@ AC_DEFUN([PU_RMT],[
   AC_MSG_CHECKING([whether to build rmt])
   AC_ARG_WITH([rmt],
               AS_HELP_STRING([--with-rmt=FILE],
-                             [Use FILE as the default `rmt' program. Do not build included copy of `rmt'.]),
+                             [Use FILE as the default 'rmt' program. Do not build included copy of 'rmt'.]),
               [case $withval in
 	       yes|no) AC_MSG_ERROR([Invalid argument to --with-rmt]);;
 	       /*)     DEFAULT_RMT_COMMAND=$withval

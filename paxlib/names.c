@@ -122,8 +122,8 @@ safer_name_suffix (char const *file_name, bool link_target,
 	    {
 	      static char const *const diagnostic[] =
 	      {
-		N_("Removing leading `%s' from member names"),
-		N_("Removing leading `%s' from hard link targets")
+		N_("Removing leading '%s' from member names"),
+		N_("Removing leading '%s' from hard link targets")
 	      };
 	      paxwarn (0, _(diagnostic[link_target]), prefix);
 	    }
@@ -136,8 +136,8 @@ safer_name_suffix (char const *file_name, bool link_target,
 	{
 	  static char const *const diagnostic[] =
 	  {
-	    N_("Substituting `.' for empty member name"),
-	    N_("Substituting `.' for empty hard link target")
+	    N_("Substituting '.' for empty member name"),
+	    N_("Substituting '.' for empty hard link target")
 	  };
 	  paxwarn (0, "%s", _(diagnostic[link_target]));
 	}

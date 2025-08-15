@@ -135,7 +135,7 @@ xtonum (const char *src, int base, idx_t cnt)
   char *p;
   char tmp[4]; /* At most three characters + zero */
 
-  /* Notice: No use to check `cnt'. It should be either 2 or 3 */
+  /* Notice: No use to check 'cnt'. It should be either 2 or 3 */
   strncpy (tmp, src, cnt);
   tmp[cnt] = '\0';
   long int val = strtol (tmp, &p, base);

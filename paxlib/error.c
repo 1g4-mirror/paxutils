@@ -98,10 +98,10 @@ pax_decode_mode (mode_t mode, char *string)
 void
 call_arg_error (char const *call, char const *name)
 {
-  /* TRANSLATORS: %s after `Cannot' is a function name, e.g. `Cannot open'.
+  /* TRANSLATORS: %s after 'Cannot' is a function name, e.g. 'Cannot open'.
      Directly translating this to another language will not work, first because
      %s itself is not translated.
-     Translate it as `%s: Function %s failed'. */
+     Translate it as '%s: Function %s failed'. */
   paxerror (errno, _("%s: Cannot %s"), quotearg_colon (name), call);
 }
 
@@ -110,10 +110,10 @@ call_arg_error (char const *call, char const *name)
 void
 call_arg_fatal (char const *call, char const *name)
 {
-  /* TRANSLATORS: %s after `Cannot' is a function name, e.g. `Cannot open'.
+  /* TRANSLATORS: %s after 'Cannot' is a function name, e.g. 'Cannot open'.
      Directly translating this to another language will not work, first because
      %s itself is not translated.
-     Translate it as `%s: Function %s failed'. */
+     Translate it as '%s: Function %s failed'. */
   paxfatal (errno, _("%s: Cannot %s"), quotearg_colon (name),  call);
 }
 
@@ -122,10 +122,10 @@ call_arg_fatal (char const *call, char const *name)
 void
 call_arg_warn (char const *call, char const *name)
 {
-  /* TRANSLATORS: %s after `Cannot' is a function name, e.g. `Cannot open'.
+  /* TRANSLATORS: %s after 'Cannot' is a function name, e.g. 'Cannot open'.
      Directly translating this to another language will not work, first because
      %s itself is not translated.
-     Translate it as `%s: Function %s failed'. */
+     Translate it as '%s: Function %s failed'. */
   paxwarn (errno, _("%s: Warning: Cannot %s"), quotearg_colon (name), call);
 }
 

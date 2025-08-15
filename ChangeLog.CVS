@@ -9,7 +9,7 @@
 2007-12-05  Sergey Poznyakoff  <gray@gnu.org.ua>
 
 	Changes needed for cpio mingw build:
-	
+
 	* lib/system.h: Include pwd.h and grp.h if the corresponding HAVE_
 	preprocessor symbols are defined.
 	* m4/system.m4 (AC_CHECK_HEADERS_ONCE): Add pwd.h and grp.h.
@@ -72,7 +72,7 @@
 	* paxlib/error.c (read_fatal_details): Fix wording of the error
 	message.
 	* tests/genfile.c: Implement new option --seek (similar
-	to `dd seek=')
+	to 'dd seek=')
 
 2006-11-29  Paul Eggert  <eggert@cs.ucla.edu>
 
@@ -398,7 +398,7 @@
 
 2005-02-03  Sergey Poznyakoff  <gray@Mirddin.farlep.net>
 
-	* tests/genfile.c: New mode `--stat' prints selected
+	* tests/genfile.c: New mode '--stat' prints selected
 	fields from struct stat for existing files.
 	Improved help output.
 

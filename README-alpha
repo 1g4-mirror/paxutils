@@ -10,7 +10,7 @@ README.
 
     If you are taking source from CVS, you will need to have automake,
 and autoconf installed to bootstrap the package. See the chapter
-`Building' for the detailed instructions. After bootstrapping, there
+'Building' for the detailed instructions. After bootstrapping, there
 should be a file 'INSTALL' with generic installation
 instructions. Package-specific installation instructions are set forth
 in the file README.

@@ -621,7 +621,7 @@ rmt_read (int handle, void *buffer, idx_t length)
 {
   char command_buffer[sizeof "R\n" + INT_STRLEN_BOUND (idx_t)];
   int done = do_command (handle, command_buffer,
-			 sprintf (command_buffer, "R%jd\n", length));
+			 sprintf (command_buffer, "R%td\n", length));
   if (done < 0)
     return done;
 
@@ -655,7 +655,7 @@ rmt_write (int handle, void const *buffer, idx_t length)
 {
   char command_buffer[sizeof "W\n" + INT_STRLEN_BOUND (idx_t)];
   void (*pipe_handler) (int);
-  int buflen = sprintf (command_buffer, "W%jd\n", length);
+  int buflen = sprintf (command_buffer, "W%td\n", length);
   if (do_command (handle, command_buffer, buflen) < 0)
     return 0;
 

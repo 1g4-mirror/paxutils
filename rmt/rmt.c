@@ -445,6 +445,12 @@ lseek_device (const char *str)
     }
 
   str = rmt_read ();
+  if (!str)
+    {
+      DEBUG (1, "unexpected EOF");
+      exit (EXIT_FAILURE);
+    }
+
   n = off = strtoumax (str, &p, 10);
   if (*p)
     {
@@ -599,7 +605,14 @@ iocop_device (const char *str)
       rmt_error_message (EINVAL, N_("Invalid operation code"));
       return;
     }
+
   str = rmt_read ();
+  if (!str)
+    {
+      DEBUG (1, "unexpected EOF");
+      exit (EXIT_FAILURE);
+    }
+
   uintmax_t count = (c_isdigit (*str)
 		     ? (errno = 0, strtoumax (str, &p, 10))
 		     : (errno = EINVAL, 0));

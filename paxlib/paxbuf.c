@@ -122,7 +122,7 @@ default_error (void *closure)
 }
 
 
-/* Interface funtions */
+/* Interface functions */
 
 /* 1. Initialize/destroy */
 

@@ -309,7 +309,7 @@ decode_oflags (const char *fstr, int *pflag)
       64|512
       CREAT|TRUNC
 
-   In addition, a compined form is also allowed, i.e. a decimal mode followed
+   In addition, a combined form is also allowed, i.e., a decimal mode followed
    by its symbolic representation.  In this case the symbolic representation
    is given preference.
 
@@ -580,7 +580,7 @@ write_device (const char *str)
 
    Function
    --------
-   Perform a MTIOCOP ioctl(2) command using the specified paramedters.
+   Perform a MTIOCOP ioctl(2) command using the specified parameters.
 
    Arguments
    ---------
